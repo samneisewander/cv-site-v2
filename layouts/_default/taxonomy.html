@@ -1,0 +1,12 @@
+{{ define "main" }}
+<a class="back-link" href="/">←&nbsp;Home</a>
+<h1 class="page-title">{{ .Title }}</h1>
+{{- with .Content }}
+<div class="content">{{ . }}</div>
+{{- end }}
+<ul class="tag-cloud">
+  {{- range .Pages.ByTitle }}
+  <li><a class="chip" href="{{ .RelPermalink }}">{{ .Title }} ({{ len .Pages }})</a></li>
+  {{- end }}
+</ul>
+{{ end }}

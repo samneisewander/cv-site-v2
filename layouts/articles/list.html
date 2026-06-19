@@ -1,0 +1,16 @@
+{{ define "main" }}
+<a class="back-link" href="/">←&nbsp;Home</a>
+<h1 class="page-title">{{ .Title }}</h1>
+{{- with .Content }}
+<div class="content">{{ . }}</div>
+{{- end }}
+
+{{/* Articles sorted by published date, newest first. */}}
+{{ $paginator := .Paginate (.Pages.ByDate.Reverse) }}
+<ul class="article-list">
+  {{- range $paginator.Pages }}
+  {{ partial "article-card.html" . }}
+  {{- end }}
+</ul>
+{{ template "_internal/pagination.html" . }}
+{{ end }}

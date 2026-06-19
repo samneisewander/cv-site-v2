@@ -1,0 +1,14 @@
+{{ define "main" }}
+<header class="profile-header">
+  {{- with resources.Get site.Params.profileImage }}
+  <img class="profile-photo" src="{{ .RelPermalink }}" alt="{{ site.Params.author }}" width="144" height="144">
+  {{- end }}
+  <h1 class="site-name">{{ site.Params.author }}</h1>
+  {{ partial "social.html" . }}
+  <a class="blog-link" href="/articles/">Read the blog&nbsp;→</a>
+</header>
+
+<div class="content">
+  {{ .Content }}
+</div>
+{{ end }}

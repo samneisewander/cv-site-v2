@@ -1,0 +1,9 @@
+{{- /* One entry in an article listing. Context: a page. */ -}}
+<li class="article-card">
+  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  {{ partial "article-meta.html" . }}
+  {{- with .Description }}
+  <p class="article-desc">{{ . }}</p>
+  {{- end }}
+  {{ partial "tags.html" . }}
+</li>

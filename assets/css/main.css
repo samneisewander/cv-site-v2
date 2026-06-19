@@ -1,0 +1,399 @@
+/* ===========================================================================
+   Sam Neisewander — personal site styles
+   Simple, subtle, academic. Off-white + serif, narrow ~80-char measure.
+   Color scheme follows the device via prefers-color-scheme (no toggle).
+   Plain CSS — bundled with chroma.css and fingerprinted via Hugo Pipes.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   Self-hosted EB Garamond (Latin subset, woff2). Served from /fonts/.
+   No external font CDN — keeps the site private and offline-resilient.
+   --------------------------------------------------------------------------- */
+@font-face {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/eb-garamond-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "EB Garamond";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/eb-garamond-latin-400-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/eb-garamond-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/eb-garamond-latin-700-normal.woff2") format("woff2");
+}
+
+/* ---------------------------------------------------------------------------
+   Design tokens
+   --------------------------------------------------------------------------- */
+:root {
+  --font-serif: "EB Garamond", Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Mono",
+    "Consolas", monospace;
+
+  /* Content measure: tuned to roughly 80 characters of the body serif,
+     like a terminal emulator. */
+  --measure: 42rem;
+  --pad: 1.25rem;
+
+  /* Light palette (warm off-white, near-black text). */
+  --bg: #fdfbf5;
+  --bg-subtle: #f3eedf;
+  --text: #1b1b1a;
+  --text-muted: #6b6457;
+  --border: #e4ddca;
+  --accent: #9d0006; /* gruvbox light red, used sparingly on hover */
+  --chip-bg: #efe8d6;
+  --chip-text: #4a463c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark palette, harmonized with Gruvbox-dark code blocks (#282828). */
+    --bg: #1d2021;
+    --bg-subtle: #282828;
+    --text: #ebdbb2;
+    --text-muted: #a89984;
+    --border: #3c3836;
+    --accent: #fb4934; /* gruvbox dark red */
+    --chip-bg: #32302f;
+    --chip-text: #d5c4a1;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+   --------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 112.5%; /* ~18px base for comfortable serif reading */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: 2.5rem var(--pad) 4rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Typography
+   --------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.25;
+  font-weight: 700;
+  margin: 2.2rem 0 0.8rem;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.55rem; }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+
+p, ul, ol, blockquote, figure, table {
+  margin: 0 0 1.1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.15em;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+a:hover {
+  text-decoration-color: var(--accent);
+  color: var(--accent);
+}
+
+blockquote {
+  margin-inline: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--border);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 1.6rem 0;
+}
+figure figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---------------------------------------------------------------------------
+   Code & syntax highlighting (Gruvbox; light/dark colors live in chroma.css)
+   --------------------------------------------------------------------------- */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+}
+
+/* Inline code (Goldmark does not wrap inline code in .chroma). */
+:not(pre) > code {
+  background: var(--bg-subtle);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+.highlight {
+  margin: 0 0 1.3rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.highlight pre.chroma {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  line-height: 1.5;
+  font-size: 0.86rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Heading anchor links (fade in on hover, click copies the section URL)
+   --------------------------------------------------------------------------- */
+.heading {
+  position: relative;
+}
+.heading-anchor {
+  margin-left: 0.4rem;
+  opacity: 0;
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: opacity 0.15s ease, color 0.15s ease;
+  vertical-align: middle;
+}
+.heading-anchor svg {
+  width: 0.7em;
+  height: 0.7em;
+}
+.heading:hover .heading-anchor,
+.heading-anchor:focus-visible {
+  opacity: 1;
+}
+.heading-anchor:hover { color: var(--accent); }
+.heading-anchor.copied { opacity: 1; color: var(--accent); }
+
+/* ---------------------------------------------------------------------------
+   Landing-page header
+   --------------------------------------------------------------------------- */
+.profile-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.profile-photo {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  margin: 0 auto 1rem;
+  display: block;
+}
+.site-name {
+  margin: 0 0 0.6rem;
+  font-size: 2.2rem;
+}
+.social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin: 0.8rem 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+.social a {
+  display: inline-flex;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+.social a:hover {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+.social svg { width: 1.4rem; height: 1.4rem; }
+
+.blog-link {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-size: 1.05rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Article listing
+   --------------------------------------------------------------------------- */
+.page-title {
+  margin-top: 0;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.article-list {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+.article-card {
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.article-card:first-child { padding-top: 0.5rem; }
+.article-card h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.4rem;
+}
+.article-card h2 a { text-decoration: none; }
+.article-card h2 a:hover { color: var(--accent); }
+
+.article-desc {
+  margin: 0.4rem 0 0.6rem;
+  color: var(--text-muted);
+  /* Description trails off if too long. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------------------------------
+   Article metadata (shared by listing cards and article header)
+   --------------------------------------------------------------------------- */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.meta .sep { opacity: 0.5; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.chip {
+  display: inline-block;
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.chip:hover { color: var(--accent); }
+
+/* ---------------------------------------------------------------------------
+   Article header & body
+   --------------------------------------------------------------------------- */
+.article-header {
+  margin-bottom: 2rem;
+}
+.article-header h1 {
+  margin: 0 0 0.6rem;
+}
+.article-header .lead {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin: 0 0 0.8rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------------------------
+   Tag taxonomy index (/tags/)
+   --------------------------------------------------------------------------- */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  padding-top: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.site-footer a { text-decoration: none; }

@@ -1,0 +1,9 @@
+{{ define "main" }}
+<a class="back-link" href="/tags/">←&nbsp;All tags</a>
+<h1 class="page-title">Tagged &ldquo;{{ .Title }}&rdquo;</h1>
+<ul class="article-list">
+  {{- range .Pages.ByDate.Reverse }}
+  {{ partial "article-card.html" . }}
+  {{- end }}
+</ul>
+{{ end }}

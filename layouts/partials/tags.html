@@ -1,0 +1,8 @@
+{{- /* Tag chips linking to /tags/<tag>/ taxonomy pages. Context: a page. */ -}}
+{{- with .Params.tags -}}
+<ul class="tags">
+  {{- range . }}
+  <li><a class="chip" href="/tags/{{ . | urlize }}/">{{ . }}</a></li>
+  {{- end }}
+</ul>
+{{- end -}}

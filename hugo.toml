@@ -1,0 +1,80 @@
+# Site configuration. See https://gohugo.io/getting-started/configuration/
+#
+# PLACEHOLDER: set baseURL to the final custom domain before going live.
+baseURL = "https://example.com/"
+languageCode = "en-us"
+title = "Sam Neisewander"
+copyright = "© Sam Neisewander"
+
+# Color scheme is driven entirely by the device (prefers-color-scheme), and
+# lastmod is read from front matter — so Git info is intentionally disabled.
+enableGitInfo = false
+enableRobotsTXT = true
+
+# Article listings are sorted by published date, newest first (see layouts).
+# Pagination for the article list.
+[pagination]
+  pagerSize = 10
+
+# Tag chips link to /tags/<tag>/ taxonomy pages.
+[taxonomies]
+  tag = "tags"
+
+# Read "Modified Date" from the front-matter `lastmod` field. Never from Git.
+# Falls back to file modification time, then Hugo's default, if absent.
+[frontmatter]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
+
+[params]
+  author = "Sam Neisewander"
+  description = "Personal website of Sam Neisewander — notes, articles, and a bit about me."
+  # Profile photo for the landing-page header. Replace assets/images/profile.svg
+  # with a real photo (e.g. profile.jpg) and update this path.
+  profileImage = "images/profile.svg"
+
+  # Social / contact links, rendered as an icon row in the landing header.
+  # Order here is the order they appear. PLACEHOLDER: fill in real URLs.
+  [[params.social]]
+    name = "github"
+    label = "GitHub"
+    url = "https://github.com/"
+  [[params.social]]
+    name = "linkedin"
+    label = "LinkedIn"
+    url = "https://www.linkedin.com/in/"
+  [[params.social]]
+    name = "email"
+    label = "Email"
+    url = "mailto:samuelneisewander@gmail.com"
+  [[params.social]]
+    name = "spotify"
+    label = "Spotify"
+    url = "https://open.spotify.com/user/"
+  [[params.social]]
+    name = "goodreads"
+    label = "Goodreads"
+    url = "https://www.goodreads.com/"
+  [[params.social]]
+    name = "instagram"
+    label = "Instagram"
+    url = "https://www.instagram.com/"
+
+# Markup pipeline: Goldmark, with Chroma syntax highlighting using CSS classes
+# (Gruvbox stylesheet lives in assets/css/chroma.css).
+[markup]
+  [markup.goldmark.renderer]
+    # Allow raw HTML in Markdown (figures, captions). Content is authored by us.
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+    lineNos = false
+    tabWidth = 2
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
+
+# Article listings and feeds order by published date, newest first.
+[services]
+  [services.rss]
+    limit = -1

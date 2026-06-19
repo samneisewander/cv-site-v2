@@ -1,0 +1,12 @@
+{{- /* Render Markdown images as <figure>. A title (the "quoted" part) becomes the
+       caption. Bundle-relative paths (e.g. figure0.webp) resolve to page resources. */ -}}
+{{- $src := .Destination -}}
+{{- with .Page.Resources.GetMatch .Destination -}}
+  {{- $src = .RelPermalink -}}
+{{- end -}}
+<figure>
+  <img src="{{ $src | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+  {{- with .Title }}
+  <figcaption>{{ . | safeHTML }}</figcaption>
+  {{- end }}
+</figure>

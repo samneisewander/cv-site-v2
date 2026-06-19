@@ -1,0 +1,17 @@
+{{ define "main" }}
+<a class="back-link" href="/articles/">←&nbsp;Articles</a>
+<article>
+  <header class="article-header">
+    <h1>{{ .Title }}</h1>
+    {{- with .Description }}
+    <p class="lead">{{ . }}</p>
+    {{- end }}
+    {{ partial "article-meta.html" . }}
+    {{ partial "tags.html" . }}
+  </header>
+
+  <div class="content">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

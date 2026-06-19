@@ -1,0 +1,36 @@
+{{- $isHome := .IsHome -}}
+{{- $title := cond $isHome site.Title (printf "%s · %s" .Title site.Title) -}}
+{{- $desc := or .Description site.Params.description -}}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<meta name="author" content="{{ site.Params.author }}">
+{{- with .Params.tags }}
+<meta name="keywords" content="{{ delimit . ", " }}">
+{{- end }}
+
+{{/* Color scheme follows the device; tint the browser chrome to match. */}}
+<meta name="theme-color" content="#fdfbf5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1d2021" media="(prefers-color-scheme: dark)">
+
+{{/* Canonical + Open Graph */}}
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:type" content="{{ cond .IsPage "article" "website" }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta name="twitter:card" content="summary">
+
+{{/* RSS + other alternate output formats (auto-discovery) */}}
+{{- range .AlternativeOutputFormats -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink (printf "%s · %s" site.Title .Name) | safeHTML }}
+{{- end }}
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+{{/* Styles: plain CSS bundled (main + chroma) -> minified, fingerprinted via Hugo Pipes. */}}
+{{- $css := slice (resources.Get "css/main.css") (resources.Get "css/chroma.css") | resources.Concat "css/bundle.css" | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

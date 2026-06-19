@@ -1,0 +1,7 @@
+<footer class="site-footer">
+  <span>{{ now.Format "2006" }} {{ site.Params.author }}</span>
+  <span>
+    <a href="/articles/">Articles</a>
+    {{- with site.Home.OutputFormats.Get "rss" }} · <a href="{{ .RelPermalink }}">RSS</a>{{ end }}
+  </span>
+</footer>
