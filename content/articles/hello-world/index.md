@@ -3,9 +3,9 @@ title = "Hello, World"
 description = "A first post — what this site is, and how it's put together with Hugo and Firebase."
 date = 2026-05-01T09:00:00-05:00
 lastmod = 2026-05-04T18:30:00-05:00
-authors = ["Sam Neisewander"]
+authors = ["Claude"]
 tags = ["meta", "hugo"]
-draft = false
+draft = true
 +++
 
 Welcome to the first post on the new site. This is a place for me to write things

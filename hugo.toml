@@ -1,7 +1,7 @@
 # Site configuration. See https://gohugo.io/getting-started/configuration/
 #
 # PLACEHOLDER: set baseURL to the final custom domain before going live.
-baseURL = "https://example.com/"
+baseURL = "https://samneisewander.com/"
 languageCode = "en-us"
 title = "Sam Neisewander"
 copyright = "© Sam Neisewander"
@@ -30,18 +30,18 @@ enableRobotsTXT = true
   description = "Personal website of Sam Neisewander — notes, articles, and a bit about me."
   # Profile photo for the landing-page header. Replace assets/images/profile.svg
   # with a real photo (e.g. profile.jpg) and update this path.
-  profileImage = "images/profile.svg"
+  profileImage = "images/profile.webp"
 
   # Social / contact links, rendered as an icon row in the landing header.
   # Order here is the order they appear. PLACEHOLDER: fill in real URLs.
   [[params.social]]
     name = "github"
     label = "GitHub"
-    url = "https://github.com/"
+    url = "https://github.com/samneisewander"
   [[params.social]]
     name = "linkedin"
     label = "LinkedIn"
-    url = "https://www.linkedin.com/in/"
+    url = "https://www.linkedin.com/in/samneisewander"
   [[params.social]]
     name = "email"
     label = "Email"
@@ -49,15 +49,15 @@ enableRobotsTXT = true
   [[params.social]]
     name = "spotify"
     label = "Spotify"
-    url = "https://open.spotify.com/user/"
+    url = "https://open.spotify.com/artist/5rTV8krDOMdxZtbZqqNfGm"
   [[params.social]]
     name = "goodreads"
     label = "Goodreads"
-    url = "https://www.goodreads.com/"
+    url = "https://www.goodreads.com/friend/i?invite_token=NzUzMzQzYzQtMjFkMS00OTc3LWFhN2ItNGNiYTEyMWY2NGE5"
   [[params.social]]
     name = "instagram"
     label = "Instagram"
-    url = "https://www.instagram.com/"
+    url = "https://www.instagram.com/samneisewander"
 
 # Markup pipeline: Goldmark, with Chroma syntax highlighting using CSS classes
 # (Gruvbox stylesheet lives in assets/css/chroma.css).

@@ -3,9 +3,9 @@ title = "In Praise of Static Sites"
 description = "Why a pile of pre-rendered HTML is still the most durable way to publish on the web."
 date = 2026-03-15T10:00:00-05:00
 lastmod = 2026-03-15T10:00:00-05:00
-authors = ["Sam Neisewander"]
+authors = ["Claude"]
 tags = ["web", "hugo"]
-draft = false
+draft = true
 +++
 
 There's a quiet satisfaction in a website that is just files. No database to back

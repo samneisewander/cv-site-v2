@@ -3,9 +3,9 @@ title = "Notes on Typography and Measure"
 description = "On line length, the 80-character measure, and why a narrow column is easier to read."
 date = 2026-06-10T08:00:00-05:00
 lastmod = 2026-06-10T08:00:00-05:00
-authors = ["Sam Neisewander"]
+authors = ["Claude"]
 tags = ["design", "typography"]
-draft = false
+draft = true
 +++
 
 A column of text is easier to read when each line is short enough that your eye

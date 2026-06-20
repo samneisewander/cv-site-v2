@@ -1,22 +1,22 @@
 +++
 title = "Sam Neisewander"
-description = "Personal website of Sam Neisewander — notes, articles, and a bit about me."
+description = "software + music"
 +++
 
 ## About
 
-Hi, I'm Sam. I build software and write the occasional article about the things
-I learn along the way. This site is a small, quiet corner of the internet for
-notes, essays, and a running record of what I'm working on.
+Hello! I'm Sam, a junior at the [University of Notre Dame](https://en.wikipedia.org/wiki/University_of_Notre_Dame) majoring in Computer Science and minoring in Music. I'm from [Dixon, IL](https://en.wikipedia.org/wiki/Dixon,_Illinois#), and on campus I'm a resident of [Sorin College](https://en.wikipedia.org/wiki/Sorin_Hall_(University_of_Notre_Dame)).
 
-*(Replace this placeholder with your own introduction.)*
+I'm interested in low-level computing; I'm most proficient in C, and I enjoy studying operating systems, compilers, networking, distributed systems, and security.
 
-## Experience
+I've also fallen headfirst down the self-hosting rabbit hole. I've spent tons of time reading up on TrueNas, Docker, and network protocols to set up my NAS. Right now I've got a media server (Jellyfin), image server (Immich), VPN (WireGuard), reverse proxy (nginx), file backup server (Nextcloud), and container manager (Portainer) running on my box.
 
-- **Company / Role** — *2024–present.* Short description of what you do here.
-- **Previous Company / Role** — *2021–2024.* Short description of prior work.
-- **Earlier Role** — *2019–2021.* Something earlier.
+Besides computing, I also love music. I've worked as a producer on a couple of projects for Gorilla Tuesday, I'm currently in post-production on an EP I wrote with Zach Nuss which is coming out December 2025, and I've engineered live sound at a couple events on and off campus. I'm an amateur guitarist and pianist.
 
-## Elsewhere
+I've also had some experience with web development (this website, plus a couple of other event sites), low-code workflow development (Microsoft Power Apps), and Python (various personal projects and classes). I like tinkering and I learn pretty quick, and I like projects which force me to get a little smarter to get the job done.
 
-You can find me through the links above, or read [my articles](/articles/).
+I like reading (follow me on Goodreads!), running, coffee, Chess, Pickleball, and cooking. My favorite Youtuber is Veritasium, favorite video game is Frostpunk, favorite superhero is Batman (he can probably do more pullups than any other superhero), favorite band is Totorro. If you know what all of those things are, congratulations: we are now best friends. If you don't know what any of those things are, you're on the wrong website, pal. Maybe check out this instead.
+
+I have extensive lawn-mowing experience (thanks, dad).
+
+Please get in touch if you'd like to work with me, or if you just wanna grab coffee and chat about nerd stuff!
