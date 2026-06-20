@@ -32,15 +32,3 @@ is computed automatically.
 Pushing to `main` builds and deploys to Firebase Hosting via
 [.github/workflows/deploy.yml](.github/workflows/deploy.yml). Pull requests get an
 ephemeral preview channel.
-
-### One-time setup (fill in the placeholders)
-
-1. Set `baseURL` in [hugo.toml](hugo.toml) to the custom domain.
-2. Set the Firebase project ID in [.firebaserc](.firebaserc) and in the two
-   `projectId:` fields of the deploy workflow.
-3. Create a Firebase service account and add it as the GitHub Actions secret
-   `FIREBASE_SERVICE_ACCOUNT` (JSON). Locally: `firebase init hosting:github`
-   can scaffold this.
-4. Fill in the real social URLs under `[[params.social]]` in `hugo.toml`.
-5. Replace [assets/images/profile.svg](assets/images/profile.svg) with a real
-   profile photo and update `profileImage` in `hugo.toml`.

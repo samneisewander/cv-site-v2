@@ -54,10 +54,6 @@ enableRobotsTXT = true
     name = "goodreads"
     label = "Goodreads"
     url = "https://www.goodreads.com/friend/i?invite_token=NzUzMzQzYzQtMjFkMS00OTc3LWFhN2ItNGNiYTEyMWY2NGE5"
-  [[params.social]]
-    name = "instagram"
-    label = "Instagram"
-    url = "https://www.instagram.com/samneisewander"
 
 # Markup pipeline: Goldmark, with Chroma syntax highlighting using CSS classes
 # (Gruvbox stylesheet lives in assets/css/chroma.css).
