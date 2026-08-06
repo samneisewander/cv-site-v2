@@ -68,7 +68,7 @@ The color of this pixel is determined by its *red*, *blue*, and *green* color ch
 
 So I could have a pixel with components `(r: 55, g: 2, b: 128)`, and that looks like this:
 
-![compositing a pixel from components](/blogImages/saichat-writeup/figure0.webp)
+![Compositing a pixel from components](figure0.webp)
 
 Could I have a pixel with components `(r: 1000000, g: 543, b: 894)`? Well, it kinda depends.
 
@@ -98,15 +98,15 @@ We can observe here that the rightmost bit affects the final value the *least*, 
 
 Bitplanes are representations of an image that help us to visualize the effect of toggling different bits. To create one, we would would first chop our source image into its different color channels, like this:
 
-![decomposing an image into color channels](/blogImages/saichat-writeup/figure1.webp)
+![Decomposing an image into color channels](figure1.webp)
 
 Then, for each color channel, we would march over each bit index and make each pixel in the bitplane black or white based on whether the bit at that index is a one or a zero:
 
-![decomposing a color channel into bitplanes](/blogImages/saichat-writeup/figure2.webp)
+![Decomposing a color channel into bitplanes](figure2.webp)
 
 Here's an example of creating bitplane pixels from the green color channel of one pixel:
 
-![decomposing a pixel's green channel into bitplane pixels](/blogImages/saichat-writeup/figure3.webp)
+![Decomposing a pixel's green channel into bitplane pixels](figure3.webp)
 
 For an 8-bit image with 3 color channels, we would have `8 * 3 = 24` different bitplanes: one per bit per channel. 
 
@@ -122,7 +122,7 @@ LSB substitution (and more generally any technique wherein you conceal data with
 
 You can plainly see that this image of Naruto is being used as a carrier for some hidden message by looking at the 0th red bitplane:
 
-![naruto's 0th red bitplane](/blogImages/saichat-writeup/figure4.webp)
+![Naruto's 0th red bitplane](figure4.webp)
 
 The noise pattern here is completely bizarre, and suggests that these bits have been tampered with. Based on this insight, we can write a small utility to extract the LSBs from the red channel of this image and assemble them into a binary dump. Inspecting this dump reveals that these bits are actually ASCII plaintext containing the flag!
 

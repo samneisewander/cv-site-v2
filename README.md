@@ -6,8 +6,7 @@ full design.
 
 ## Develop
 
-Requires **Hugo** (version pinned in [.hugo-version](.hugo-version)). The standard
-edition is enough — styles are plain CSS, so the extended (Sass) edition isn't needed.
+Requires **Hugo** (version pinned in [.hugo-version](.hugo-version)).
 
 ```bash
 hugo server      # live-reload dev server at http://localhost:1313
