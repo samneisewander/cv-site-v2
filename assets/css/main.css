@@ -208,6 +208,11 @@ td {
     border-bottom: 1px solid var(--border);
 }
 
+table {
+  display: block;
+  overflow-x: auto;
+}
+
 /* ---------------------------------------------------------------------------
    Code & syntax highlighting (Gruvbox; light/dark colors live in chroma.css)
    --------------------------------------------------------------------------- */
